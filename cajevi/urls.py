@@ -12,5 +12,6 @@ urlpatterns = [
    path('search/', views.search, name='search'),
    path('narudzba/', views.narudzba, name='narudzba'),
    path('onama/', views.o_nama, name='onama'),
+   path('informacije/', views.informacije, name='informacije')
 
 ]

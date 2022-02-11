@@ -40,6 +40,9 @@ def search(request):
 def o_nama(request):
     return render(request, 'Cajevi/onama.html')
 
+def informacije(request):
+    return render(request, 'Cajevi/informacije.html')
+
 def narudzba(request):
     cajevi = ['Nana', 'Kamilica', 'Herbal']
     # Geting users opitions
@@ -87,3 +90,14 @@ def narudzba(request):
             ['stefwolf22@gmail.com'], # To email
         )
     return render(request, 'Cajevi/narudzba.html')
+
+
+# Error handeling 
+def error_404(request, exception):
+    return render(request, 'Cajevi/404.html')
+
+def error_500(request):
+    return render(request, 'Cajevi/500.html')
+
+def error_400(request, exception):
+    return render(request, 'Cajevi/400.html')

@@ -13,11 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from cgitb import handler
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 from django.conf.urls.static import static
 from django.conf import settings
+
+from cajevi import views
 
 
 urlpatterns = [
@@ -25,3 +28,7 @@ urlpatterns = [
     path('', include('cajevi.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404="cajevi.views.error_404"
+handler500="cajevi.views.error_500"
+handler400="cajevi.views.error_400"

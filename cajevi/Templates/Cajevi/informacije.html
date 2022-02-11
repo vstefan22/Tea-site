@@ -1,0 +1,94 @@
+{%extends 'Cajevi/base.html'%} {%load static%} {%block content%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{%static 'css/informacije.css'%}" />
+    <title>Informacije o narudzbi</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!--Main section-->
+      <main class="main">
+        <div class="kako-naruciti">
+          <h2>Kako da narucite caj?</h2>
+          <ul>
+            <li>
+              Kliknite
+              <span id="narudzba"
+                ><a href="{% url 'cajevi:narudzba' %}">"Narudzba"</a></span
+              >
+              u gornjem desnom uglu stranice
+            </li>
+            <li>Ispunite podatke potrebne za uspesnu dostavu</li>
+            <li>Izaberite koji caj zelite da kupite</li>
+            <li>
+              Pritisnite zeleno dugme
+              <span id="submit"
+                ><a href="{% url 'cajevi:narudzba' %}">Submit</a></span
+              >
+            </li>
+            <li>Uspesno ste narucili caj!</li>
+          </ul>
+        </div>
+        <div class="sta-dalje">
+          <h4>Sta dalje?</h4>
+          <p>
+            Klikom na Submit dugme mi primamo vase informacije o narudzbi,
+            pakujemo cajeve koje ste izabrali i saljemo na unesenu adresu. Kroz
+            par dana do sedmica trebali bi da primite vasu narudzbu. U slucaju
+            problem pri dostavi dobicete obavestenje na broj telefona ili
+            e-mail. Ako budete zadovoljni nasom uslugom molimo vas da nam se
+            javite putem telefona ili e-maila i ocenite nasu uslugu.
+          </p>
+        </div>
+        <div class="info-sigurnost">
+          <h4>Da li su vase informacije sigurne</h4>
+          <p>
+            Da, jesu. Sve informacije koje ste uneli koristice se iskljucivo za
+            dostavu caja i ni za sta drugo.
+          </p>
+        </div>
+      </main>
+
+      <!--Kontak section-->
+      <aside class="aside">
+        <h2>Kontakt</h2>
+        <p>Broj telefona: 065/306/770</p>
+        <p>E-mail adresa: cajevi.zaric@gmail.com</p>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="{%url 'cajevi:onama'%}">O nama</a></li>
+              <li><a href="{%url 'cajevi:meni'%}">Meni</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+              <li>
+                <a href="{%url 'cajevi:informacije'%}"
+                  >Informacije o narudzbi</a
+                >
+              </li>
+              <li><a href="{%url 'cajevi:informacije'%}">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Cajevi Zaric</h4>
+            <h3>&copy;2022 Cajevi Zaric</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+{%endblock content%}
