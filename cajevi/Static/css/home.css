@@ -1,0 +1,311 @@
+body {
+  margin: 0px;
+  margin-top: 52px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ebe8e8;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 170px;
+}
+
+.slider {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+.slides {
+  width: 500%;
+  height: 600px;
+  display: flex;
+}
+.slides input {
+  display: none;
+}
+.slide {
+  width: 20%;
+  transition: 2s;
+}
+.slide-first {
+  position: absolute;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 500px;
+}
+
+/* slide text*/
+.slide .slide-first-info {
+  position: absolute;
+  background-color: #9bc76b;
+  color: #fff;
+  text-align: center;
+  align-content: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-bottom: 1px solid black;
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.slide .slide-first-info h1 {
+  text-transform: uppercase;
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.slide .slide-first-info p {
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+/*css for manual navigation*/
+.navigation-manual {
+  position: absolute;
+  width: 100%;
+  margin-top: 460px;
+  display: flex;
+  justify-content: center;
+}
+.manual-btn {
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+.manual-btn:hover {
+  background-color: #6acc49;
+}
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+/*cajevi section*/
+.meni-section {
+  margin: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+.caj-section {
+  background-color: #9bc76b;
+  padding: 10px;
+  display: flex;
+}
+.caj-info {
+  margin-left: 10px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  color: white;
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.caj-info-1 {
+  margin-top: 30px;
+  justify-content: end;
+}
+.meni-section li {
+  list-style: none;
+}
+
+.meni-section a {
+  color: white;
+  text-decoration: none;
+}
+
+#nudimo-vam {
+  font-family: garamond;
+  font-size: 36px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #9bc76b;
+}
+
+#ime-caja {
+  font-family: garamond;
+  font-size: 21px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+#components {
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+#components span {
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+#na-stanju span {
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+#cena span {
+  font-family: garamond;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+#vise {
+  text-align: center;
+  font-family: garamond;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+#vise a {
+  color: #82c76b;
+}
+
+.caj-section:hover {
+  background: #97c76b;
+  width: 98%;
+  height: 99%;
+}
+
+/* Footer section*/
+
+.footer {
+  background: #6cad44;
+  padding: 10px 0;
+}
+.container {
+  margin-right: 20%;
+  margin-left: 20%;
+}
+ul {
+  list-style-type: none;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-weight: bold;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background: #a17073;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col h3 {
+  font-size: 12px;
+  color: #fff;
+
+  margin-bottom: 30px;
+}
+.footer-col h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #fff;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 10px;
+}
+@media (max-width: 991px) {
+  header {
+    padding: 10px 20px;
+    flex-direction: column;
+  }
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .slide .slide-first-info p {
+    font-size: 13px;
+    width: 100%;
+  }
+  .slide {
+    margin-top: 89px;
+
+    width: 20%;
+  }
+  .caj-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .meni-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  .navigation-manual {
+    margin-top: 639px;
+  }
+  #nudimo-vam {
+    margin: 60px;
+    margin-top: 350px;
+  }
+  .caj-section img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css'%}" />
+    <script
+      src="https://kit.fontawesome.com/7f87685fd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Cajevi Zaric</title>
+  </head>
+  <body>
+    <header>
+      <a href="{%url 'cajevi:index'%}" id="logo"><p>Cajevi Zaric</p></a>
+      <div class="search">
+        <form action="{%url 'cajevi:search' %}" method="get">
+          <input type="text" name="search" placeholder="Pretrazite" />
+
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+      <ul class="nav-links">
+        <li><a href="{%url 'cajevi:index'%}">Pocetna</a></li>
+        <li id="meni"><a href="{%url 'cajevi:meni'%}">Meni</a></li>
+        <li><a href="{% url 'cajevi:narudzba' %}">Narudzba</a></li>
+        <li><a href="{% url 'cajevi:onama' %}">O nama</a></li>
+      </ul>
+    </header>
+
+    {%block content%}{%endblock content%}
+  </body>
+</html>

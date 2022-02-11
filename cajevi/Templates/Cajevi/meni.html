@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{%extends 'Cajevi/base.html'%} {%block content%} {%load static%}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/meni.css'%}" />
+    <title>Cajevi Zaric</title>
+  </head>
+
+  <body>
+    <div class="empty">
+      {%for caj in cajevi%}
+      <div class="caj-section">
+        <a href="{%url 'cajevi:caj' caj.id %}">
+          <div>
+            {%if caj.tea_image%}
+
+            <img src="{{caj.tea_image.url}}" alt="nema" />
+            {%else%}
+            <img
+              src="C:\My HTML&CSS exercises(projects)\Milutin Milankovic\Images\MIlutin Milankovic spomenik"
+              alt=""
+            />
+
+            {%endif%}
+          </div>
+        </a>
+        <li id="ime-caja">
+          <a href="{%url 'cajevi:caj' caj.id %}">{{caj}}</a>
+        </li>
+
+        <div id="opis"><p>{{caj.components|slice:":455"}}</p></div>
+        <span id="cena"><p>Cena:&nbsp; {{caj.price}}</p></span>
+        <span><p id="na-stanju">Na stanju: &nbsp;{{caj.stock}}</p></span>
+      </div>
+
+      {%endfor%}
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="{%url 'cajevi:onama'%}">O nama</a></li>
+              <li><a href="{%url 'cajevi:meni'%}">Meni</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+              <li><a href="">Informacije o narudzbi</a></li>
+              <li><a href="">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Cajevi Zaric</h4>
+            <h3>&copy;2022 Cajevi Zaric</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  {%endblock content%}
+</html>

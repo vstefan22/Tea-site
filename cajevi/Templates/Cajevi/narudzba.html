@@ -1,0 +1,129 @@
+{%extends 'Cajevi/base.html'%} {%block content%} {%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/narudzba.css' %}" />
+  </head>
+  <body>
+    <div class="everything">
+      <div class="heading-text">
+        <h2>Unesite vase podatke potrebne za dostavu</h2>
+      </div>
+      <form action="{% url 'cajevi:narudzba' %}" method="post">
+        {%csrf_token%}
+        <div class="form">
+          <!--User information block-->
+          <div class="information-block"></div>
+          <div class="information">
+            <label for="Unesite vase ime">Ime i prezime</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Unesite ime i prezime"
+            />
+          </div>
+
+          <div class="information">
+            <label for="">E-mail adresa</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Unesite svoju email adresu"
+            />
+          </div>
+
+          <div class="information">
+            <label for="">Adresa</label>
+            <input
+              type="text"
+              name="adresa"
+              placeholder="Unesite svoju adresu"
+            />
+          </div>
+
+          <div class="information">
+            <label for="">Broj telefona</label>
+            <input
+              type="phone"
+              name="phone"
+              placeholder="Unesite svoj broj telefona"
+            />
+          </div>
+
+          <div class="information">
+            <label for="">Grad</label>
+            <input type="text" name="grad" placeholder="Unesite ime grada" />
+          </div>
+
+          <div class="information">
+            <label for="">Postanski broj</label>
+            <input
+              type="number"
+              name="postanski-broj"
+              placeholder="Postanski broj grada"
+            />
+          </div>
+        </div>
+
+        <!--Caj block-->
+        <div class="heading-text">
+          <h2>Odaberite caj/eve koje zelite da narucite</h2>
+        </div>
+        <div class="caj-block">
+          <div class="caj">
+            <label for="kamilica">Kamilica</label>
+            <input
+              type="checkbox"
+              value="Kamilica"
+              name="cajevi"
+              id="kamilica"
+            />
+          </div>
+
+          <div class="caj">
+            <label for="nana">Nana</label>
+            <input type="checkbox" value="Nana" name="cajevi" id="nana" />
+          </div>
+
+          <div class="caj">
+            <label for="herbal">Herbal</label>
+            <input type="checkbox" value="Herbal" name="cajevi" id="herbal" />
+          </div>
+        </div>
+
+        <input type="submit" id="submit" />
+        {%csrf_token%}
+      </form>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="{%url 'cajevi:onama'%}">O nama</a></li>
+              <li><a href="{%url 'cajevi:meni'%}">Meni</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+              <li><a href="">Informacije o narudzbi</a></li>
+              <li><a href="">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Cajevi Zaric</h4>
+            <h3>&copy;2022 Cajevi Zaric</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  {%endblock content%}
+</html>

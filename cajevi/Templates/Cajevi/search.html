@@ -1,0 +1,98 @@
+{%extends 'Cajevi/base.html'%} {%block content%} {%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pretrazivanje</title>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}" />
+  </head>
+  <body>
+    <div class="everything">
+      <div class="wrapper">
+        <h3 id="title">Rezultati pretrazivanja:</h3>
+
+        <!--Results start-->
+        <div class="meni-section">
+          {%for caj in cajevi%}
+          <div class="caj-section">
+              
+            <a href="{%url 'cajevi:caj' caj.id %}">
+              <!--Caj image-->
+              <div>
+                {%if caj.tea_image%}
+
+                <img src="{{caj.tea_image.url}}" alt="nema" />
+                {%else%}
+                <img
+                  src="C:\My HTML&CSS exercises(projects)\Milutin Milankovic\Images\MIlutin Milankovic spomenik"
+                  alt=""
+                />
+
+                {%endif%}
+              </div>
+            </a>
+            <!--Caj info-->
+            <div class="caj-info">
+              <li id="ime-caja">
+                <a href="{%url 'cajevi:caj' caj.id %}">{{caj}}</a>
+              </li>
+              <p id="components">
+                <span> O caju: </span>{{caj.components|slice:":300"}}<a
+                  href="{%url 'cajevi:caj' caj.id %}"
+                  >&nbsp;...Procitajte vise</a
+                >
+              </p>
+              <div class="caj-info-1">
+                <p id="na-stanju"><span> Na stanju: </span>&nbsp;{{caj.stock}}</p>
+                <p style="margin-right: 25px" id="cena">
+                  <span>Cena:</span>&nbsp; {{caj.price}}&nbsp;KM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!--Caj info end-->
+
+      {%empty%}
+      <div class="none-div">
+      <p id="none">Nije pronadjen zeljeni artikal!</p>
+      <p id="none-info">Proverite da li ste dobro ukucali ime artikla kojeg trazite.</p>
+    </div>
+      {%endfor%}
+
+      <!--Results end-->
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="{%url 'cajevi:onama'%}">O nama</a></li>
+          <li><a href="{%url 'cajevi:meni'%}">Meni</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="">Informacije o narudzbi</a></li>
+          <li><a href="">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Cajevi Zaric</h4>
+        <h3>&copy;2022 Cajevi Zaric</h3>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
+{%endblock content%}

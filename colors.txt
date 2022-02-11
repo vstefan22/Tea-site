@@ -1,0 +1,23 @@
+HOME PAGE
+#ebe8e8 - background
+#9bc76b - slide text
+#82c76b - caj section
+#97c76b - caj section hover
+
+BASE 
+#77c91e - header
+
+FOOTER 
+#6fab5b - background
+
+
+CHANGES
+
+GREEEN
+    SLIDE TEXT - #9bc76b
+    NAV - #18ad31
+
+ORANGE
+    FOOTER - #fab33d
+
+

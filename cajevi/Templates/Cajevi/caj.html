@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{%extends 'Cajevi/base.html'%} {%block content%} {%load static%}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/caj.css' %}" />
+    <title>Cajevi Zaric</title>
+  </head>
+  <body>
+    <script>
+      let btnShow = document.querySelector('button');
+      let result = document.querySelector('odabrali-ste');
+      btnShow.addEventListener('click', () => {
+      let checkbox = document.querySelector('input[type="checkbox"]:checked');
+      result.innerText = checkbox.parentElement.textContent;    
+});
+    </script>
+    <div class="everything">
+      <div class="section-1">
+        <!--Image-->
+        <div class="image">
+          {%if caj.tea_image%}
+          <img src="{{caj.tea_image.url}}" alt="Slika caja" id="slika-1" />
+          {%else%}
+          <img
+            src="C:\My HTML&CSS exercises(projects)\Milutin Milankovic\Images\MIlutin Milankovic spomenik"
+            alt="Nije pronadjena slika"
+          />
+          {%endif%}
+        </div>
+
+        <!--Price, stock, amount-->
+        <div class="text-info">
+          <h3>{{caj}}</h3>
+          <p id="cena">
+            Cena:<span>{{caj.price}}KM</span>&nbsp;&nbsp;(sa dostavom:
+            {{caj.price_with_shipping}})
+          </p>
+          <p id="dostava">Dostava: <span> 14 dana</span></p>
+          <p id="stanje">Na stanju: <span>{{caj.stock}}</span></p>
+          <div class="buttons">
+          
+            <a href="{%url 'cajevi:narudzba' %}"method="get"><button>Zapocni narudzbu</button></a>
+           
+          </div>
+        </div>
+      </div>
+      <h3 id="h3-opis">Opis</h3>
+      <p id="date">Objavljeno: {{date}}</p>
+      <p id="opis">{{caj.components}}</p>
+        </div>
+        </div>
+      </div>
+    </form>
+    
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="{%url 'cajevi:onama'%}">O nama</a></li>
+              <li><a href="{%url 'cajevi:meni'%}">Meni</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+              <li><a href="">Informacije o narudzbi</a></li>
+              <li><a href="">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Cajevi Zaric</h4>
+            <h3>&copy;2022 Cajevi Zaric</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+    {%endblock content%}
+  </body>
+</html>

@@ -1,0 +1,159 @@
+{%extends 'Cajevi/base.html'%} {%load static%} {%block content%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cajevi Zaric</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!--Slide image-->
+      <div class="slider">
+        <div class="slides">
+          <!--radio buttons start-->
+          <input type="radio" name="radio-btn" id="radio1" />
+          <input type="radio" name="radio-btn" id="radio2" />
+          <input type="radio" name="radio-btn" id="radio3" />
+          <!--radio buttons end-->
+          <!--slide images start-->
+          <div class="slide first">
+            <div class="slide-first">
+              <img src="static/Images/green-tea.jpg" alt="" />
+              <div class="slide-first-info">
+                <h1>O nama</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
+                  illum qui eligendi vel quibusdam maxime optio ullam id unde
+                  deserunt modi dolorem quae asperiores nisi repudiandae,
+                  distinctio iste consectetur. Distinctio!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-first">
+              <img src="static/Images/green-tea.jpg" alt="" />
+              <div class="slide-first-info">
+                <h1>Cajevi</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
+                  illum qui eligendi vel quibusdam maxime optio ullam id unde
+                  deserunt modi dolorem quae asperiores nisi repudiandae,
+                  distinctio iste consectetur. Distinctio!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-first">
+              <img src="static/Images/green-tea.jpg" alt="" />
+              <div class="slide-first-info">
+                <h1>O nama</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
+                  illum qui eligendi vel quibusdam maxime optio ullam id unde
+                  deserunt modi dolorem quae asperiores nisi repudiandae,
+                  distinctio iste consectetur. Distinctio!
+                </p>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!--slide images end-->
+          <!--automatic navigation start-->
+          
+        </div>
+        <!--manual navigation start-->
+        <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+        </div>
+        <!--manual navigation end-->
+      </div>
+    </div>
+    <!--image slider end-->
+
+    <!--Meni section starts-->
+    <h1 id="nudimo-vam">Nudimo vam</h1>
+    <div class="meni-section">
+      
+        {%for caj in cajevi%}
+        <div class="caj-section">
+          <a href="{%url 'cajevi:caj' caj.id %}">
+            <!--Caj image-->
+            <div>
+              {%if caj.tea_image%}
+  
+              <img src="{{caj.tea_image.url}}" alt="nema" />
+              {%else%}
+              <img
+                src="C:\My HTML&CSS exercises(projects)\Milutin Milankovic\Images\MIlutin Milankovic spomenik"
+                alt=""
+              />
+  
+              {%endif%}
+            </div>
+          </a>
+          <!--Caj info-->
+          <div class="caj-info">
+              <li id="ime-caja">
+                <a href="{%url 'cajevi:caj' caj.id %}">{{caj}}</a>
+              </li>
+              <p id="components"><span> O caju: </span>{{caj.components|slice:":195"}}<a href="{%url 'cajevi:caj' caj.id %}">&nbsp;...Procitajte vise</a></p>
+            <div class="caj-info-1">
+              <p id="na-stanju"><span> Na stanju: </span>&nbsp;{{caj.stock}}</p>
+              <p style="margin-right: 25px;" id="cena"><span>Cena:</span>&nbsp; {{caj.price}}&nbsp;KM</p>
+            </div>
+          </div>
+        </div>
+        
+        {%endfor%}
+        
+    </div>
+    <p id="vise"><a href="{%url 'cajevi:meni'%}">Vise</a></p>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="{%url 'cajevi:onama'%}">O nama</a></li>
+              <li><a href="{%url 'cajevi:meni'%}">Meni</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+              <li><a href="">Informacije o narudzbi</a></li>
+              <li><a href="">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Cajevi Zaric</h4>
+            <h3>&copy;2022 Cajevi Zaric</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--Meni section ends-->
+    <script type="text/javascript">
+      var counter = 1;
+      setInterval(function () {
+        document.getElementById("radio" + counter).checked = true;
+        counter++;
+        if (counter > 3) {
+          counter = 1;
+        }
+      }, 5000);
+    </script>
+    
+  </body>
+  {%endblock content%}
+</html>
