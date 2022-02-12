@@ -29,6 +29,8 @@ urlpatterns = [
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+'''
 handler404="cajevi.views.error_404"
 handler500="cajevi.views.error_500"
 handler400="cajevi.views.error_400"
+'''

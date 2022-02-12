@@ -93,7 +93,7 @@ def narudzba(request):
 
 
 # Error handeling 
-def error_404(request, exception):
+'''def error_404(request, exception):
     return render(request, 'Cajevi/404.html')
 
 def error_500(request):
@@ -101,3 +101,5 @@ def error_500(request):
 
 def error_400(request, exception):
     return render(request, 'Cajevi/400.html')
+    '''
+
