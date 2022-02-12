@@ -65,6 +65,10 @@ def narudzba(request):
             naruceni.append(cajevi_s)
 
         # Send mail 
+        quantity_get = request.POST.getlist('quantity')
+        quantity_get.remove('0')
+
+      
 
         name = request.POST['name']
         email = request.POST['email']
@@ -82,7 +86,7 @@ def narudzba(request):
              '\nBroj telefona: ' + phone + 
              '\nGrad: ' + grad + 
              '\nPostanski broj: ' + postanski_broj +
-             '\nNaruceni cajevi su: ' + str_naruceni,
+             '\nNaruceni cajevi su: ' + str_naruceni + '\n'+  'Kolicina pakovanja caja je: ' + str(quantity_get),
             
           
             # Message

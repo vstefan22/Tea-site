@@ -269,20 +269,11 @@ ul {
   color: #fff;
   padding-left: 10px;
 }
+
 @media (max-width: 991px) {
-  header {
-    padding: 10px 20px;
-    flex-direction: column;
-  }
-  .footer-col {
-    width: 50%;
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 768px) {
-  .slide .slide-first-info p {
+  .slide .slide-first-info {
     font-size: 13px;
-    width: 100%;
+    width: 330px;
   }
   .slide {
     margin-top: 89px;

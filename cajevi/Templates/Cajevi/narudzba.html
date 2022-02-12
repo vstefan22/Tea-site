@@ -24,6 +24,7 @@
               type="text"
               name="name"
               placeholder="Unesite ime i prezime"
+              required
             />
           </div>
 
@@ -33,6 +34,7 @@
               type="email"
               name="email"
               placeholder="Unesite svoju email adresu"
+              required
             />
           </div>
 
@@ -42,6 +44,7 @@
               type="text"
               name="adresa"
               placeholder="Unesite svoju adresu"
+              required
             />
           </div>
 
@@ -51,12 +54,18 @@
               type="phone"
               name="phone"
               placeholder="Unesite svoj broj telefona"
+              required
             />
           </div>
 
           <div class="information">
             <label for="">Grad</label>
-            <input type="text" name="grad" placeholder="Unesite ime grada" />
+            <input
+              type="text"
+              name="grad"
+              placeholder="Unesite ime grada"
+              required
+            />
           </div>
 
           <div class="information">
@@ -65,6 +74,7 @@
               type="number"
               name="postanski-broj"
               placeholder="Postanski broj grada"
+              required
             />
           </div>
         </div>
@@ -82,22 +92,41 @@
               name="cajevi"
               id="kamilica"
             />
+            <input type="number" value="0" name="quantity" id="kamilica" />
+            {%csrf_token%}
           </div>
 
           <div class="caj">
             <label for="nana">Nana</label>
             <input type="checkbox" value="Nana" name="cajevi" id="nana" />
+            <input type="number" value="0" name="quantity" id="nana" />
+            {%csrf_token%}
           </div>
 
           <div class="caj">
             <label for="herbal">Herbal</label>
             <input type="checkbox" value="Herbal" name="cajevi" id="herbal" />
+            <input type="number" value="0" name="quantity" id="herbal" />
+            {%csrf_token%}
           </div>
         </div>
 
         <input type="submit" id="submit" />
         {%csrf_token%}
       </form>
+      <section class="info-narudzba">
+        <h2>Obavestenje!</h2>
+        <p>
+          Kolicina caja se meri u paketima! Jedan paket ima 50g. Ne mozete
+          kupovati caj u gramima samo u paketima! <br />
+          <br />
+          <span
+            >Za vise informacija posetite
+            <a href="{% url 'cajevi:informacije' %}">"Informacije o narudzbi"</a
+            >.</span
+          >
+        </p>
+      </section>
     </div>
 
     <footer class="footer">
